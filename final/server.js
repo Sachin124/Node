@@ -6,6 +6,8 @@ var app = express();
 hbs.registerPartials(__dirname + '/views/partials/');
 app.set('view engine', 'hbs');
 
+const port = process.env.PORT || 3000;
+
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
 });
@@ -31,6 +33,6 @@ app.get('/about', (req, res) => {
     });
 });
 
-app.listen(2000, () => {
-    console.log('Listining port 2000');
+app.listen(port, () => {
+    console.log(`Listining port ${port}`);
 })
